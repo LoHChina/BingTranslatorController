@@ -10,6 +10,7 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using System.Web;
 using System.Text.RegularExpressions;
+using FileUpload.Models;
 
 
     public class Xlif
@@ -58,7 +59,7 @@ using System.Text.RegularExpressions;
             if (root != null)
             {
                 string source_language = root.Attributes["source-language"].Value;
-                _xlifFile.source_language = source_language != null ? source_language : "en-US";
+                _xlifFile.source_language = source_language != null ? source_language : "en";
                 string target_language = root.Attributes["target-language"].Value;
                 _xlifFile.target_language = target_language != null ? target_language : "sw";
 
@@ -83,7 +84,22 @@ using System.Text.RegularExpressions;
             }
             return _xlifFile;
         }
+        public void zipRun(string zipLocalPath,string zipName)
+        {
+            string zipDirectory = zipLocalPath + "_\\";
+            zipFileApi.UnZipFiles(zipLocalPath, zipDirectory);
+            DirectoryInfo dir=new DirectoryInfo(zipDirectory);
+            readDictoryAndTranslate(dir);
+            int fatherDirPos=zipLocalPath.LastIndexOf("\\");
+            zipFileApi.CreateZip(zipDirectory, zipLocalPath.Substring(0,fatherDirPos)+"\\" + zipName);
+        }
 
+        public void readDictoryAndTranslate(DirectoryInfo directoryinfo)
+        {
+            foreach( FileInfo fileinfo in directoryinfo.GetFiles("*.xlf") ){
+                run(fileinfo.FullName);
+            }
+        }
         public string run(string xlifPath)
         {
             //default source and target language
@@ -120,7 +136,7 @@ using System.Text.RegularExpressions;
                     {
                         string word = childnode.SelectSingleNode("ns:source", nsMgr).InnerText;
                         string translated_word = Translate(word,source_language,target_language);
-                        string[] wordlist = Regex.Split(translated_word, " ", RegexOptions.IgnoreCase);
+                        //string[] wordlist = Regex.Split(translated_word, " ", RegexOptions.IgnoreCase);
                         childnode.SelectSingleNode("ns:target", nsMgr).InnerText = translated_word;
                     }
 

@@ -31,3 +31,6 @@ C:\Users\t-geli\Downloads\ASP.NET Web API File Upload and Multipart MIME\C#\File
 C:\Users\t-geli\Downloads\ASP.NET Web API File Upload and Multipart MIME\C#\FileUpload\obj\Debug\FileUpload.csprojResolveAssemblyReference.cache
 C:\Users\t-geli\Downloads\ASP.NET Web API File Upload and Multipart MIME\C#\FileUpload\obj\Debug\FileUpload.dll
 C:\Users\t-geli\Downloads\ASP.NET Web API File Upload and Multipart MIME\C#\FileUpload\obj\Debug\FileUpload.pdb
+C:\Users\t-geli\Downloads\ASP.NET Web API File Upload and Multipart MIME\C#\FileUpload\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\t-geli\Downloads\ASP.NET Web API File Upload and Multipart MIME\C#\FileUpload\bin\ICSharpCode.SharpZipLib.pdb
+C:\Users\t-geli\Downloads\ASP.NET Web API File Upload and Multipart MIME\C#\FileUpload\bin\ICSharpCode.SharpZipLib.xml

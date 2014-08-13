@@ -25,11 +25,10 @@ public class UploadController : ApiController
             // This illustrates how to get the file names for uploaded files.
             foreach (var file in provider.FileData)
             {
-
                 FileInfo fileInfo = new FileInfo(file.LocalFileName);
                 XlifParser xliffParser = new XlifParser();
-                xliffParser.run(fileInfo.FullName);
-                sb.Append(xliffParser.Xlif2String(fileInfo.FullName));
+                xliffParser.zipRun(fileInfo.FullName, file.Headers.ContentDisposition.FileName.Replace("\"", string.Empty));
+                //sb.Append(xliffParser.Xlif2String(fileInfo.FullName));
 
             }
             return new HttpResponseMessage()
