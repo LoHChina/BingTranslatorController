@@ -29,5 +29,18 @@ using System.Xml.XPath;
                 locales.Add(it.InnerText);
             }
         }
+		public string localeTrans(string inLocale)
+        {
+            string outLocale = "zh-CHS";
+            if (locales.Contains(inLocale)) return inLocale;
+            if (!inLocale.Contains("-")) return outLocale;
+            if(inLocale=="zh-Hant"||inLocale=="zh-HK"||inLocale=="zh-TW") return "zh-CHT";
+            int index = inLocale.IndexOf("-");
+            inLocale = inLocale.Substring(0, index);
+            if (locales.Contains(inLocale)) return inLocale;
+            if (inLocale == "zh") return "zh-CHS";
+
+            return outLocale;
+        }
     }
 

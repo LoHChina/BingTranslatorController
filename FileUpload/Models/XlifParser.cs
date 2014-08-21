@@ -84,6 +84,22 @@ using FileUpload.Models;
             }
             return _xlifFile;
         }
+		public string run(string fileLocalPath, string fileName)
+        {
+            int exindex=fileName.LastIndexOf('.');
+            string extention = fileName.Substring(exindex+1);
+            if (extention == "zip")
+            {
+                zipRun(fileLocalPath,fileName);
+                return "Zip File translated!";
+            }
+            else if (extention == "xlf")
+            {
+                return xliffRun(fileLocalPath);
+
+            }
+            return "Unsupported file type";
+        }
         public void zipRun(string zipLocalPath,string zipName)
         {
             string zipDirectory = zipLocalPath + "_\\";
@@ -91,16 +107,16 @@ using FileUpload.Models;
             DirectoryInfo dir=new DirectoryInfo(zipDirectory);
             readDictoryAndTranslate(dir);
             int fatherDirPos=zipLocalPath.LastIndexOf("\\");
-            zipFileApi.CreateZip(zipDirectory, zipLocalPath.Substring(0,fatherDirPos)+"\\" + zipName);
+             zipFileApi.CreateZip(zipDirectory, "d:\\ftp\\" + zipName);
         }
 
         public void readDictoryAndTranslate(DirectoryInfo directoryinfo)
         {
             foreach( FileInfo fileinfo in directoryinfo.GetFiles("*.xlf") ){
-                run(fileinfo.FullName);
+                xliffRun(fileinfo.FullName);
             }
         }
-        public string run(string xlifPath)
+        public string xliffRun(string xlifPath)
         {
             //default source and target language
             string source_language = "en";
@@ -116,14 +132,8 @@ using FileUpload.Models;
             {
                 source_language = root.Attributes["source-language"].Value;
                 target_language = root.Attributes["target-language"].Value;
-                if (!(bingLocals.locales.Contains(source_language) || bingLocals.locales.Contains(source_language.Substring(0,source_language.IndexOf('-')))))
-                {
-                    return "source language type unsupported";
-                }
-                if (!(bingLocals.locales.Contains(target_language) || bingLocals.locales.Contains(target_language.Substring(0, target_language.IndexOf('-')))))
-                {
-                    return "target language type unsupported";
-                }
+                source_language = bingLocals.localeTrans(source_language);
+                target_language = bingLocals.localeTrans(target_language);
             }
 
             XmlNodeList nodelist = xdoc.SelectNodes("/ns:xliff/ns:file/ns:body/ns:group", nsMgr);

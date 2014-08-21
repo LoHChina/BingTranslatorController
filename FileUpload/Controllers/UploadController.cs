@@ -27,8 +27,8 @@ public class UploadController : ApiController
             {
                 FileInfo fileInfo = new FileInfo(file.LocalFileName);
                 XlifParser xliffParser = new XlifParser();
-                xliffParser.zipRun(fileInfo.FullName, file.Headers.ContentDisposition.FileName.Replace("\"", string.Empty));
-                //sb.Append(xliffParser.Xlif2String(fileInfo.FullName));
+                string info=xliffParser.run(fileInfo.FullName, file.Headers.ContentDisposition.FileName.Replace("\"", string.Empty));
+                sb.Append(info);
 
             }
             return new HttpResponseMessage()

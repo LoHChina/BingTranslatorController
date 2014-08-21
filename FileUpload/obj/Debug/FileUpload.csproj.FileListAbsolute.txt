@@ -34,3 +34,39 @@ C:\Users\t-geli\Downloads\ASP.NET Web API File Upload and Multipart MIME\C#\File
 C:\Users\t-geli\Downloads\ASP.NET Web API File Upload and Multipart MIME\C#\FileUpload\bin\ICSharpCode.SharpZipLib.dll
 C:\Users\t-geli\Downloads\ASP.NET Web API File Upload and Multipart MIME\C#\FileUpload\bin\ICSharpCode.SharpZipLib.pdb
 C:\Users\t-geli\Downloads\ASP.NET Web API File Upload and Multipart MIME\C#\FileUpload\bin\ICSharpCode.SharpZipLib.xml
+D:\BingTranslatorController\FileUpload\bin\FileUpload.dll.config
+D:\BingTranslatorController\FileUpload\bin\FileUpload.dll
+D:\BingTranslatorController\FileUpload\bin\FileUpload.pdb
+D:\BingTranslatorController\FileUpload\bin\Antlr3.Runtime.dll
+D:\BingTranslatorController\FileUpload\bin\EntityFramework.dll
+D:\BingTranslatorController\FileUpload\bin\ICSharpCode.SharpZipLib.dll
+D:\BingTranslatorController\FileUpload\bin\Microsoft.Web.Infrastructure.dll
+D:\BingTranslatorController\FileUpload\bin\Newtonsoft.Json.dll
+D:\BingTranslatorController\FileUpload\bin\System.Net.Http.Formatting.dll
+D:\BingTranslatorController\FileUpload\bin\System.Web.Helpers.dll
+D:\BingTranslatorController\FileUpload\bin\System.Web.Http.dll
+D:\BingTranslatorController\FileUpload\bin\System.Web.Http.WebHost.dll
+D:\BingTranslatorController\FileUpload\bin\System.Web.Mvc.dll
+D:\BingTranslatorController\FileUpload\bin\System.Web.Optimization.dll
+D:\BingTranslatorController\FileUpload\bin\System.Web.Providers.dll
+D:\BingTranslatorController\FileUpload\bin\System.Web.Razor.dll
+D:\BingTranslatorController\FileUpload\bin\System.Web.WebPages.Deployment.dll
+D:\BingTranslatorController\FileUpload\bin\System.Web.WebPages.dll
+D:\BingTranslatorController\FileUpload\bin\System.Web.WebPages.Razor.dll
+D:\BingTranslatorController\FileUpload\bin\WebGrease.dll
+D:\BingTranslatorController\FileUpload\bin\ICSharpCode.SharpZipLib.pdb
+D:\BingTranslatorController\FileUpload\bin\ICSharpCode.SharpZipLib.xml
+D:\BingTranslatorController\FileUpload\bin\EntityFramework.xml
+D:\BingTranslatorController\FileUpload\bin\Newtonsoft.Json.xml
+D:\BingTranslatorController\FileUpload\bin\System.Net.Http.Formatting.xml
+D:\BingTranslatorController\FileUpload\bin\System.Web.Helpers.xml
+D:\BingTranslatorController\FileUpload\bin\System.Web.Http.xml
+D:\BingTranslatorController\FileUpload\bin\System.Web.Http.WebHost.xml
+D:\BingTranslatorController\FileUpload\bin\System.Web.Mvc.xml
+D:\BingTranslatorController\FileUpload\bin\System.Web.Razor.xml
+D:\BingTranslatorController\FileUpload\bin\System.Web.WebPages.xml
+D:\BingTranslatorController\FileUpload\bin\System.Web.WebPages.Deployment.xml
+D:\BingTranslatorController\FileUpload\bin\System.Web.WebPages.Razor.xml
+D:\BingTranslatorController\FileUpload\obj\Debug\FileUpload.csprojResolveAssemblyReference.cache
+D:\BingTranslatorController\FileUpload\obj\Debug\FileUpload.dll
+D:\BingTranslatorController\FileUpload\obj\Debug\FileUpload.pdb
