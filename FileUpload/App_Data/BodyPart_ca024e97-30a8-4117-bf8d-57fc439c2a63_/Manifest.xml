@@ -1,0 +1,15 @@
+<Manifest>
+  <PackageDetails>
+    <Handoff name="t1andt2" date="8/22/2014 8:23:37 AM" />
+  </PackageDetails>
+  <Asset AssetId="8e82c43a-6e8e-478c-bc20-386d562e9281" AssetType="Article">
+    <HandoffDetail>
+      <Language Locale="ar-BH" RelativePath="t1andt2\ar-BH\topic\8e82c43a-6e8e-478c-bc20-386d562e9281.Article.mv130.bv14.ar-BH.xlf" BlobRevision="14" MetadataRevision="N/A" />
+    </HandoffDetail>
+  </Asset>
+  <Asset AssetId="a60fc3fe-ff2a-4e39-9a38-226eb2f23eff" AssetType="Article">
+    <HandoffDetail>
+      <Language Locale="ar-BH" RelativePath="t1andt2\ar-BH\topic\a60fc3fe-ff2a-4e39-9a38-226eb2f23eff.Article.mv195.bv34.ar-BH.xlf" BlobRevision="34" MetadataRevision="N/A" />
+    </HandoffDetail>
+  </Asset>
+</Manifest>

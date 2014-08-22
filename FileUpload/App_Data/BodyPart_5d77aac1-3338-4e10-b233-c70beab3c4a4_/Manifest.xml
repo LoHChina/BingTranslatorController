@@ -1,0 +1,10 @@
+<Manifest>
+  <PackageDetails>
+    <Handoff name="test" date="8/22/2014 5:51:26 AM" />
+  </PackageDetails>
+  <Asset AssetId="c8000937-618f-49b5-b01a-381109e165d5" AssetType="Article">
+    <HandoffDetail>
+      <Language Locale="ar-AE" RelativePath="test\ar-AE\topic\c8000937-618f-49b5-b01a-381109e165d5.Article.mv76.bv2.ar-AE.xlf" BlobRevision="2" MetadataRevision="N/A" />
+    </HandoffDetail>
+  </Asset>
+</Manifest>
