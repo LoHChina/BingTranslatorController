@@ -14,7 +14,11 @@ public class UploadController : ApiController
 
         string root = HttpContext.Current.Server.MapPath("~/App_Data");
         var provider = new MultipartFormDataStreamProvider(root);
-
+        HttpResponse response=HttpContext.Current.Response;
+        response.AppendHeader("Access-Control-Allow-Origin", "*");
+        response.AppendHeader("Access-Control-Allow-Method", "*");
+        HttpRequest request= HttpContext.Current.Request;
+        //string filename=request["filename"];
         try
         {
             StringBuilder sb = new StringBuilder(); // Holds the response body
@@ -22,12 +26,14 @@ public class UploadController : ApiController
             // Read the form data and return an async task.
             await Request.Content.ReadAsMultipartAsync(provider);
 
-            // This illustrates how to get the file names for uploaded files.
+            string [] filename = provider.FormData.GetValues("FileName");
+            string [] projectId = provider.FormData.GetValues("projectId");
+             // This illustrates how to get the file names for uploaded files.
             foreach (var file in provider.FileData)
             {
                 FileInfo fileInfo = new FileInfo(file.LocalFileName);
                 XlifParser xliffParser = new XlifParser();
-                string info=xliffParser.run(fileInfo.FullName, file.Headers.ContentDisposition.FileName.Replace("\"", string.Empty));
+                string info=xliffParser.run(fileInfo.FullName, filename[0], projectId[0]);
                 sb.Append(info);
 
             }

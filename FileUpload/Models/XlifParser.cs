@@ -84,6 +84,31 @@ using FileUpload.Models;
             }
             return _xlifFile;
         }
+
+        public string run(string fileLocalPath, string fileName,string projectId)
+        {
+            int exindex = fileName.LastIndexOf('.');
+            string extention = fileName.Substring(exindex + 1);
+            string packagePath = @"d:\\ftp\\"+fileName;
+            string handbackName = fileName.Substring(0,exindex);
+            string parentId = "23778e91a9b84e88973e7e128fddd108";
+            string requestUri = "v1/Projects/"+projectId+"/Handbacks";
+            string ServiceEndpoint = "https://caps-api-devint.azurewebsites.net/";
+            if (extention == "zip")
+            {
+                zipRun(fileLocalPath, fileName);
+                ServiceClientHelper.createHandBack(packagePath, parentId, handbackName, ServiceEndpoint, requestUri);
+                return "Zip File translated!";
+            }
+            else if (extention == "xlf")
+            {
+                xliffRun(fileLocalPath);
+                ServiceClientHelper.createHandBack(packagePath, parentId, handbackName, ServiceEndpoint, requestUri);
+
+            }
+            return "Unsupported file type";
+        }
+
 		public string run(string fileLocalPath, string fileName)
         {
             int exindex=fileName.LastIndexOf('.');
@@ -115,6 +140,11 @@ using FileUpload.Models;
             foreach( FileInfo fileinfo in directoryinfo.GetFiles("*.xlf") ){
                 xliffRun(fileinfo.FullName);
             }
+            foreach (DirectoryInfo direcinfo in directoryinfo.GetDirectories()){
+                readDictoryAndTranslate(direcinfo);
+            }
+            return;
+            
         }
         public string xliffRun(string xlifPath)
         {

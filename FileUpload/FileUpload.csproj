@@ -133,6 +133,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BingLocale.cs" />
+    <Compile Include="Models\ClientHelper.Service.cs" />
     <Compile Include="Models\Program.cs" />
     <Compile Include="Models\XlifParser.cs" />
     <Compile Include="Models\zipFileApi.cs" />
