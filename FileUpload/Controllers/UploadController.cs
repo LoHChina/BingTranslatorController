@@ -33,7 +33,16 @@ public class UploadController : ApiController
             {
                 FileInfo fileInfo = new FileInfo(file.LocalFileName);
                 XlifParser xliffParser = new XlifParser();
-                string info=xliffParser.run(fileInfo.FullName, filename[0], projectId[0]);
+                string info = "";
+                if (projectId != null)
+                {
+                    info = xliffParser.run(fileInfo.FullName, filename[0], projectId[0]);
+                }
+                else
+                {
+                    info = xliffParser.run(fileInfo.FullName, filename[0]);
+                }
+                
                 sb.Append(info);
 
             }

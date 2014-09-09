@@ -137,6 +137,10 @@ using FileUpload.Models;
 
         public void readDictoryAndTranslate(DirectoryInfo directoryinfo)
         {
+            foreach (FileInfo fileinfo in directoryinfo.GetFiles("manifest.xml"))
+            {
+                File.Delete(fileinfo.FullName);
+            }
             foreach( FileInfo fileinfo in directoryinfo.GetFiles("*.xlf") ){
                 xliffRun(fileinfo.FullName);
             }
