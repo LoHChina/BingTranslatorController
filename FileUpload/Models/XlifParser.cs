@@ -11,6 +11,7 @@ using System.Xml.XPath;
 using System.Web;
 using System.Text.RegularExpressions;
 using FileUpload.Models;
+using System.Text.RegularExpressions;
 
 
     public class Xlif
@@ -38,6 +39,7 @@ using FileUpload.Models;
 
     class XlifParser
     {
+        public string ftpPath = "d:\\ftp\\";
         public string Xlif2String(string xlifPath)
         {
             string content = "";
@@ -89,7 +91,7 @@ using FileUpload.Models;
         {
             int exindex = fileName.LastIndexOf('.');
             string extention = fileName.Substring(exindex + 1);
-            string packagePath = @"d:\\ftp\\"+fileName;
+            string packagePath = ftpPath+fileName;
             string handbackName = fileName.Substring(0,exindex);
             string parentId = "23778e91a9b84e88973e7e128fddd108";
             string requestUri = "v1/Projects/"+projectId+"/Handbacks";
@@ -132,7 +134,7 @@ using FileUpload.Models;
             DirectoryInfo dir=new DirectoryInfo(zipDirectory);
             readDictoryAndTranslate(dir);
             int fatherDirPos=zipLocalPath.LastIndexOf("\\");
-             zipFileApi.CreateZip(zipDirectory, "d:\\ftp\\" + zipName);
+             zipFileApi.CreateZip(zipDirectory, ftpPath + zipName);
         }
 
         public void readDictoryAndTranslate(DirectoryInfo directoryinfo)
@@ -178,10 +180,47 @@ using FileUpload.Models;
                 {
                     if (childnode.Attributes["translate"].Value == "yes")
                     {
-                        string word = childnode.SelectSingleNode("ns:source", nsMgr).InnerText;
-                        string translated_word = Translate(word,source_language,target_language);
-                        //string[] wordlist = Regex.Split(translated_word, " ", RegexOptions.IgnoreCase);
-                        childnode.SelectSingleNode("ns:target", nsMgr).InnerText = translated_word;
+                        childnode.SelectSingleNode("ns:target", nsMgr).RemoveAll();
+                        //string word = childnode.SelectSingleNode("ns:source", nsMgr).InnerXml;
+                        XmlNodeList cnl=childnode.SelectSingleNode("ns:source", nsMgr).ChildNodes;
+                        XmlNode tnode=childnode.SelectSingleNode("ns:target", nsMgr);
+                        foreach (XmlNode child in cnl)
+                        {
+                            XmlNode newchild = child.CloneNode(true);
+                            if (child.NodeType == XmlNodeType.Text ||
+                                child.NodeType == XmlNodeType.CDATA)
+                            {
+                                string word = child.Value;
+                                string translated_word = Translate(word, source_language, target_language);
+                                newchild.Value = translated_word;
+                                //child.Value = translated_word;
+                            }
+                            tnode.AppendChild(newchild);
+                        }
+
+                        /*string reword=Regex.Replace(word, "<([^>]*)>([^>]*)</([^>]*)>", " ");
+                        if (reword == word)
+                        {
+                            string translated_word = Translate(word, source_language, target_language);
+                            //string[] wordlist = Regex.Split(translated_word, " ", RegexOptions.IgnoreCase);
+                            childnode.SelectSingleNode("ns:target", nsMgr).InnerText = translated_word;
+                        }
+                        else
+                        {
+                            string[] wordlist = Regex.Split(reword, " ", RegexOptions.IgnoreCase);
+                            for (int i=0;i<wordlist.Length;i++ )
+                            {
+                                wordlist[i] = wordlist[i].Trim();
+                                if (wordlist[i] != "")
+                                {
+                                    string translated_word = Translate(wordlist[i], source_language, target_language);
+                                    word = word.Replace(wordlist[i], translated_word);
+                                }
+                                
+                            }
+                            childnode.SelectSingleNode("ns:target", nsMgr).InnerText = word;
+                        }*/
+                        
                     }
 
                 }

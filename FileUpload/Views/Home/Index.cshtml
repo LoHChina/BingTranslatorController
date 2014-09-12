@@ -1,34 +1,65 @@
-﻿<header>
-    <div class="content-wrapper">
-        <div class="float-left">
-            <p class="site-title">
-                <a href="~/">ASP.NET Web API</a>
-            </p>
+﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<header>
+</header>
+<div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Machine Translation</a>
+            </div>
+            <form class="navbar-form navbar-right" role="form">
+                <button type="submit" class="btn btn-default">By Ge Li</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <div class="container">
+            <form name="form1" method="post" enctype="multipart/form-data" action="api/upload">
+                <fieldset>
+                    <h1>Machine Translation</h1>
+
+                </fieldset>
+            </form>
         </div>
     </div>
-</header>
-<div id="body">
 
-    <h2>Multipart/form-data</h2>
+        <div class="container">
+            <!-- Example row of columns -->
+                <form name="form1" class="form-horizontal" method="post" enctype="multipart/form-data" action="api/upload">
+                    <div class="row">
+                            <div class="form-group">
+                                <label for="FileName" class="col-sm-2 control-label">File Name</label>
+                                <div class="col-sm-10">
+                                    <input name="FileName" class="form-control" type="text" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="file" class="col-sm-2 control-label">zip/xliff File</label>
+                                <div class="col-sm-10">
+                                    <input name="file" type="file" class="form-control" />
+                                </div>
+                                
+                            </div>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" value="Submit" class="btn btn-success" />
+                        </div>
+                    </div>
+                </form>
 
-    <section class="main-content clear-fix">
+                <hr>
 
-        <form name="form1" method="post" enctype="multipart/form-data" action="api/upload">
-            <fieldset>
-                <legend>File Upload Example</legend>
-                <div>
-                    <label for="FileName">File Name</label>
-                    <input name="FileName" type="text" />
-                </div>
-            <div>
-                <label for="file">zip/xliff File</label>
-                <input name="file" type="file" />
-            </div>
-            <div>
-                <input type="submit" value="Submit" />
-            </div>
-                </fieldset>
-        </form>
+                <footer>
+                    <p>© Microsoft co. 2015</p>
+                </footer>
+        </div>
 
-       </section>
+
+    
 </div>

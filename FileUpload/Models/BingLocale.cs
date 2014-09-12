@@ -11,7 +11,7 @@ using System.Xml.XPath;
     public class BingLocale
     {
         public List<string> locales;
-        string confPath = "d:\\binglocal.xml";
+        string confPath = "c:\\binglocal.xml";
         public BingLocale()
         {
             locales = new List<string>();
